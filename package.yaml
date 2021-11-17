@@ -1,0 +1,33 @@
+name: xmonad-pebble
+version: 0.1.0
+synopsis: xmonad setting
+github: pebble/xmonad
+author: pebble
+license: GPL-3
+dependencies:
+  - X11
+  - base
+  - xmonad
+  - xmonad-contrib
+
+library:
+  source-dirs: lib
+  exposed-modules:
+    - Keybinds
+    - Hooks
+    - Bar
+
+executables:
+  xmonad:
+    main: xmonad.hs
+    dependencies: 
+      - xmonad-pebble
+    source-dirs: .
+    ghc-options:
+      - -Wall
+      - -fwarn-tabs
+      - -threaded
+      - -O2
+      - -with-rtsopts=-N4
+      - -Wno-missing-signatures
+

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+stack ghc -- \
+  --make xmonad.hs \
+  -i \
+  -ilib \
+  -fforce-recomp \
+  -main-is main \
+  -v0 \
+  -Wall \
+  -fwarn-tabs \
+  -threaded \
+  -O2 \
+  -with-rtsopts=-N4 \
+  -o "$1"
+
+exec install xmonad /home/cpj/.local/bin/xmonad
